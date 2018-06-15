@@ -1,0 +1,17 @@
+{
+  "data": {
+    "type": "topic",
+    "attributes": {
+      "body": "## heading\n\n @admin **Hello!**",
+      "title": "我是标题！"
+    },
+    "relationships": {
+      "categories": {
+        "data": [{
+          "id": "5",
+          "type": "category"
+        }]
+      }
+    }
+  }
+}

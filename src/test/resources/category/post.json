@@ -1,0 +1,17 @@
+{
+  "data": {
+    "type": "category",
+    "attributes": {
+      "name": "求助",
+      "description": "HELP!"
+    },
+    "relationships": {
+      "parent": {
+        "data": {
+          "id": "0",
+          "type": "category"
+        }
+      }
+    }
+  }
+}

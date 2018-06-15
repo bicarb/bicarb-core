@@ -1,0 +1,17 @@
+{
+  "data": {
+    "type": "topic",
+    "attributes": {
+      "body": "其实呢，我打完这一场仗，就回老家结婚。",
+      "title": "可是那一天，我有了新的想法"
+    },
+    "relationships": {
+      "categories": {
+        "data": [{
+          "id": "5",
+          "type": "category"
+        }]
+      }
+    }
+  }
+}

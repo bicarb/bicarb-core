@@ -1,0 +1,11 @@
+{
+  "data": {
+    "id": "1",
+    "type": "category",
+    "attributes": {
+      "name": "Game Game",
+      "slug": "game-game",
+      "description": "Game"
+    }
+  }
+}

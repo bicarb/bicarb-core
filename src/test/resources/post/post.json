@@ -1,0 +1,16 @@
+{
+  "data": {
+    "type": "post",
+    "attributes": {
+      "raw": "@admin **Hello**"
+    },
+    "relationships": {
+      "topic": {
+        "data": {
+          "id": "1",
+          "type": "topic"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "data": {
+    "type": "user",
+    "attributes": {
+      "nickname": "瞄瞄",
+      "username": "test",
+      "password": "test",
+      "email": "test@test.com"
+    }
+  }
+}

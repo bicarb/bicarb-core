@@ -1,0 +1,9 @@
+{
+  "data": {
+    "type": "setting",
+    "id": "key",
+    "attributes": {
+      "value": "value"
+    }
+  }
+}

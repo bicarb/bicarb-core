@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    application-display-name: bicarb
+    session:
+      cookie:
+        name: bicarb_session
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://dev.com:5432/bicarb_dev
+    username: bicarb
+    password: bicarb
+  resources:
+    cache:
+      cachecontrol:
+        cache-public: true
+        max-age: P30D
+    static-locations:
+      - "file:public/"
+      - "classpath:/META-INF/resources/"
+      - "classpath:/resources/"
+      - "classpath:/static/"
+      - "classpath:/public/"
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: validate
+    properties:
+      # hibernate.generate_statistics: true
+      hibernate.jdbc.batch_size: 20
+      hibernate.cache.region.factory_class: org.hibernate.cache.jcache.JCacheRegionFactory
+      # hibernate.javax.cache.provider: org.ehcache.jsr107.EhcacheCachingProvider
+      # hibernate.javax.cache.uri: classpath:/ehcache3.xml
+      hibernate.cache.use_query_cache: true
+      hibernate.search.lucene_version: LUCENE_5_5_5
+      hibernate.search.model_mapping: org.bicarb.core.forum.search.BicarbSearchMappingFactory
+      hibernate.search.default.directory_provider: filesystem
+      hibernate.search.default.indexBase: indexes
+  mail:
+    properties:
+      mail.smtp.connectiontimeout: 5000
+      mail.smtp.timeout: 3000
+      mail.smtp.writetimeout: 5000
+      mail.smtp.auth: true
+    host: enable.auto.configuration
+    protocol: smtps
+  servlet:
+    multipart:
+      max-file-size: 5MB
+  cache:
+    jcache:
+      config: classpath:/ehcache3.xml
+  thymeleaf:
+    prefix: file:templates/
+
+logging:
+  level:
+    org.bicarb.core: debug
+    org.illyasviel.elide: debug
+    # org.hibernate: debug
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+    org.hibernate.type.descriptor.sql: trace
+    com.yahoo.elide.datastores.hibernate5.porting.SessionWrapper: debug
+elide:
+  spring-dependency-injection: false
+  return-error-objects: true

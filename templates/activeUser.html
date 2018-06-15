@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head::commonHead(~{::title}, ~{::other})">
+  <title>Active Your Account</title>
+  <th:block th:fragment="other">
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      input.logout {
+        background: none;
+        font-size: 1.5em;
+        margin: 0;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+    </style>
+  </th:block>
+</head>
+<body>
+<div th:switch="${state}" class="container">
+  <form th:case="'success'" method="post" name="logoutForm" action="/logout">
+    <h2>
+      success, please <input class="logout" type="submit" value="re-login"> to renew your session
+    </h2>
+    <input type="hidden" name="" th:name="${_csrf.parameterName}" value="" th:value="${_csrf.token}">
+  </form>
+  <h2 th:case="'alreadyActive'">already active</h2>
+  <h2 th:case="'invalidJwe'">invalid jwe</h2>
+  <h2 th:case="'*'">unknown state</h2>
+</div>
+<script th:if="${state} == 'success'">
+  setTimeout(function() {
+    document.logoutForm.submit();
+  }, 3000);
+</script>
+</body>
+</html>

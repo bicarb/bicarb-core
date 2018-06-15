@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title th:remove="all">Template for HTML email</title>
+</head>
+<body style="margin: 0; padding: 0;">
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="600"
+       style="border-collapse: collapse;">
+  <tr>
+    <td bgcolor="#eaeaea" style="padding: 20px 30px;">
+      <p>
+        Hi <strong th:text="${user.username}">username</strong>!
+      </p>
+      <p>
+        Help us verify your email address
+        (<a class="plaintext" href="" th:text="${user.email}" th:href="|mailto:${user.email}|">email</a>).
+        This lets you access all of our features.
+      </p>
+
+      <!-- note: VML markup is fallback for Outlook 2007, 2010, and 2013; see http://buttons.cm/ -->
+      <div class="cta-button-wrap cta-button-wrap-centered">
+        <!--[if mso]>
+        <p style="line-height:0px;height:0;font-size:1px;margin:0;padding:0;">&nbsp;</p>
+        <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" th:href="${verifyLink}" style="height:40px;v-text-anchor:middle;width:200px;" arcsize="8%" stroke="f" fillcolor="#4183C4">
+          <w:anchorlock/>
+          <center>
+        <![endif]-->
+        <a class="cta-button" href="" th:href="${verifyLink}">Verify email address</a>
+        <!--[if mso]>
+        </center>
+        </v:roundrect>
+        <![endif]-->
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#eaeaea">
+      <hr>
+    </td>
+  </tr>
+  <tr>
+    <td bgcolor="#eaeaea" style="padding: 20px 30px;">
+      <p class="email-text-small email-text-gray">
+        Button not working? Paste the following link into your browser:<br>
+        <a href="" th:href="${verifyLink}" th:text="${verifyLink}">verifyLink</a>
+      </p>
+
+      <p class="email-text-small email-text-gray">
+        You&#8217;re receiving this email because you recently
+        created a new account or added a new email address.
+        If this wasn&#8217;t you, please ignore this email.
+      </p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

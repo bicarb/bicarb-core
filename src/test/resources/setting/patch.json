@@ -1,0 +1,9 @@
+{
+  "data": {
+    "type": "setting",
+    "id": "primaryColor",
+    "attributes": {
+      "value": "#000"
+    }
+  }
+}

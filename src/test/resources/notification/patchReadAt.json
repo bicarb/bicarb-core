@@ -1,0 +1,9 @@
+{
+  "data": {
+    "id": "1",
+    "type": "notification",
+    "attributes": {
+      "readAt": "2017-12-31T23:59:59.999999999Z"
+    }
+  }
+}

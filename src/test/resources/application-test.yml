@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://dev.com:5432/bicarb_test
+    username: bicarb
+    password: bicarb
+
+logging:
+  level:
+    org.bicarb.core: debug
+    org.illyasviel.elide: info
+    org.hibernate.SQL: info
+    org.hibernate.type: info
+    org.hibernate.type.descriptor.sql: info
+    com.yahoo.elide.datastores.hibernate5.porting.SessionWrapper: info

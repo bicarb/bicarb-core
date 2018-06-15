@@ -1,0 +1,12 @@
+{
+  "data": {
+    "type": "user",
+    "id": "1",
+    "attributes": {
+      "emailPublic": true,
+      "bio": "bio",
+      "website": "https://github.com/olOwOlo",
+      "github": "olOwOlo"
+    }
+  }
+}

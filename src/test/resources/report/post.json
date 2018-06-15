@@ -1,0 +1,16 @@
+{
+  "data": {
+    "type": "report",
+    "attributes": {
+      "reason": "reason"
+    },
+    "relationships": {
+      "post": {
+        "data": {
+          "id": "1",
+          "type": "post"
+        }
+      }
+    }
+  }
+}

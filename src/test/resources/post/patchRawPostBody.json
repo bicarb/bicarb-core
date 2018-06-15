@@ -1,0 +1,9 @@
+{
+  "data": {
+    "type": "post",
+    "id": "2",
+    "attributes": {
+      "raw": "## bla bla bla\n\n@alice @bob @unknown Hello."
+    }
+  }
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!--
+  ~ Copyright (c) 2018 the original author or authors.
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#000000">
+  <meta name="renderer" content="webkit">
+  <title th:text="${settings.get('siteName')}?:'setting.siteName is not exits'">Title</title>
+
+  <!--/* meta */-->
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="generator" content="Bicarb">
+  <meta name="robots" content="index, follow" th:if="${topic} or ${topics}">
+
+  <th:block th:if="${_csrf}">
+    <meta name="_csrf" content="" th:content="${_csrf.token}">
+    <meta name="_csrf_header" content="" th:content="${_csrf.headerName}">
+    <meta name="_csrf_parameter" content="" th:content="${_csrf.parameterName}">
+  </th:block>
+
+  <link rel="manifest" href="/manifest.json">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+</head>
+<body>
+<noscript>
+  You need to enable JavaScript to run this app.
+  <!--/* topic page */-->
+  <th:block th:if="${topic}">
+    <!--/* post list */-->
+    <ul>
+      <li th:each="post: ${posts.content}">
+        <div th:utext="${post.cooked}"></div>
+      </li>
+    </ul>
+
+    <a th:href="'?page=' + ${page - 1}" th:if="${page} &gt; 1">Prev page</a>
+    <a th:href="'?page=' + ${page + 1}" th:if="${posts.numberOfElements} == ${posts.size}">Next Page</a>
+  </th:block>
+
+  <!--/* topic list page */-->
+  <th:block th:if="${topics}">
+    <ul>
+      <li th:each="topic: ${topics.content}">
+        <a th:href="'/topic/' + ${topic.id} + '/' + ${topic.slug}" th:text="${topic.title}"></a>
+      </li>
+    </ul>
+
+    <a th:href="'?page=' + ${page - 1}" th:if="${page} &gt; 1">Prev page</a>
+    <a th:href="'?page=' + ${page + 1}" th:if="${topics.numberOfElements} == ${topics.size}">Next Page</a>
+  </th:block>
+</noscript>
+<div id="root">
+  <div style="display: flex; align-items: center; justify-content: center;">
+    <svg class="lds-spinner" width="512px"  height="512px"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="background: none;"><g transform="rotate(0 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(30 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(60 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(90 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(120 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(150 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(180 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(210 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(240 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(270 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(300 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate></rect></g><g transform="rotate(330 50 50)"><rect x="47" y="24" rx="9.4" ry="4.8" width="6" height="12" fill="#c05b4d"><animate attributeName="opacity" values="1;0" times="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate></rect></g></svg>
+  </div>
+</div>
+<script th:attr="nonce=${nonce}" th:inline="javascript">
+  var settings = /*[[${settings}]]*/ undefined;
+  var groups = /*[[${groups}]]*/ undefined;
+  var categories = /*[[${categories}]]*/ undefined;
+</script>
+<th:block th:if="${auth}">
+  <script th:attr="nonce=${nonce}" th:inline="javascript">
+    var auth = /*[[${auth}]]*/ undefined;
+  </script>
+</th:block>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/react@16.4.1/umd/react.production.min.js" integrity="sha256-r6coyN0DEl/vyKMiiB9+AjqSKO8XTdGOFjlAhSnsqxM=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom@16.4.1/umd/react-dom.production.min.js" integrity="sha256-y7o/b35Jyjb19wJ//GUjm84bLl+YlmDGmnwpgZvzN+4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/redux@4.0.0/dist/redux.min.js" integrity="sha256-hfNRBJsmJ7BaeBvsxVPdVeDbdEVV/MFNBm4BRLc72OY=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/react-redux@5.0.7/dist/react-redux.min.js" integrity="sha256-um7DcEns3J42qU41brDoZeZ1fAn2eHRtLOKLgMZ3UVE=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/redux-form@7.4.0/dist/redux-form.min.js" integrity="sha256-qVM3ro+AUlHiwAxAYHAMIMwvxP/LHMDxTUGHfp1tE8w=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="/static/js/bundle.js"></script>
+
+</body>
+</html>

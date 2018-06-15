@@ -1,0 +1,14 @@
+{
+  "data": {
+    "type": "user",
+    "id": "1",
+    "relationships": {
+      "group": {
+        "data": {
+          "id": "2",
+          "type": "group"
+        }
+      }
+    }
+  }
+}

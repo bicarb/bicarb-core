@@ -1,0 +1,8 @@
+{
+  "data": {
+    "type": "user",
+    "attributes": {
+      "avatar": "https://example.com/a.png"
+    }
+  }
+}

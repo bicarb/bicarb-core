@@ -1,0 +1,15 @@
+{
+  "data": {
+    "type": "group",
+    "attributes": {
+      "name": "Player",
+      "color": "#eee",
+      "icon": "icon icon-circle",
+      "permissions": [
+        "1",
+        "2",
+        "3"
+      ]
+    }
+  }
+}
