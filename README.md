@@ -12,6 +12,11 @@ An open source discussion forum back-end.
 - JDK 10+
 - PostgreSQL
 
+## Usage
+
+- Check out the [API documentation](https://community.bicarb.org/api).
+- [Some Things You Must Know](https://github.com/bicarb/bicarb-core/blob/master/docs/DEVELOPER.md)
+
 ## RoadMap
 
 - plugin
