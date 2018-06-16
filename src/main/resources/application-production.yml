@@ -12,5 +12,4 @@ logging:
     org.hibernate.type: info
     org.hibernate.type.descriptor.sql: info
     com.yahoo.elide.datastores.hibernate5.porting.SessionWrapper: info
-  file: bicarb.log
-  path: logs
+  file: logs/bicarb.log
